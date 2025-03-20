@@ -13,3 +13,9 @@ NOTE: could incoporate this into ERDDAP eventually?
 ```bash
 pip install openeo
 ```
+
+### cronjob
+```
+# get copernicus granule for today
+0 0 * * * /usr/bin/python3 /root/Copernicus2ERDDAP/getTodaysGranule.py
+```
