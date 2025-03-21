@@ -1,3 +1,11 @@
+"""
+Download granule from Copernicus Data Space Ecosystem
+
+This script provides tools for downloading Sentinel-2 granules 
+from the Copernicus Data Space Ecosystem for a specified date
+or the current date if none is provided.
+"""
+
 from pathlib import Path
 import openeo
 from openeo import processes as eop
@@ -64,13 +72,8 @@ def get_granule(target_date=None):
 
 def main():
     # Set up argument parser
-    parser = argparse.ArgumentParser(
-        description='Download Sentinel-2 granule for a specific date'
-    )
-    parser.add_argument(
-        '--date', '-d', type=str, 
-        help='Date in YYYY-MM-DD format. Defaults to today if not provided.'
-    )
+    parser = argparse.ArgumentParser(description='Download Sentinel-2 granule for a specific date')
+    parser.add_argument('--date', '-d', type=str, help='Date in YYYY-MM-DD format. Defaults to today if not provided.')
     
     # Parse for command line use
     if len(sys.argv) > 1:

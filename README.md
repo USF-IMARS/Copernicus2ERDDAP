@@ -20,12 +20,26 @@ You can run the script from the command line with an optional date parameter:
 
 ```bash
 # Download granule for today
-python download_granule.py
+python copernicus_to_erddap/download_granule.py
 
 # Download granule for a specific date
-python download_granule.py --date 2025-03-20
+python copernicus_to_erddap/download_granule.py --date 2025-03-20
 # or
-python download_granule.py -d 2025-03-20
+python copernicus_to_erddap/download_granule.py -d 2025-03-20
+```
+
+### Package Import
+Now that the project is set up as a Python package, you can import functions directly:
+
+```python
+# Import the main function
+from copernicus_to_erddap import get_granule
+
+# Download granule for today
+output_file = get_granule()
+
+# Or for a specific date
+output_file = get_granule('2025-03-20')
 ```
 
 ### Airflow Integration
@@ -35,7 +49,7 @@ The function accepts a date parameter (string in format 'YYYY-MM-DD' or datetime
 
 ```python
 # In your Airflow task
-from download_granule import get_granule
+from copernicus_to_erddap import get_granule
 
 # With a specific date
 output_file = get_granule('2025-03-20')
@@ -46,4 +60,4 @@ output_file = get_granule(execution_date.strftime('%Y-%m-%d'))
 ### cronjob
 ```bash
 # get copernicus granule for today
-0 0 * * * cd /home/tylar/repos/Copernicus2ERDDAP/ && /usr/bin/python3 /root/Copernicus2ERDDAP/download_granule.py
+0 0 * * * cd /home/tylar/repos/Copernicus2ERDDAP/ && /usr/bin/python3 /root/Copernicus2ERDDAP/copernicus_to_erddap/download_granule.py
