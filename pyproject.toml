@@ -1,6 +1,6 @@
 [tool]
 [tool.poetry]
-name = "copernicus-to-erddap"
+name = "copernicus_to_erddap"
 version = "0.0.1"
 homepage = "https://github.com/USF-IMaRS/Copernicus2ERDDAP"
 description = "ESA data for NOAA"
