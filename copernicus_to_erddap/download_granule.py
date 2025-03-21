@@ -8,12 +8,6 @@ or the current date if none is provided.
 
 from pathlib import Path
 import openeo
-from openeo import processes as eop
-from shapely.geometry import box
-import matplotlib.pyplot as plt
-import xarray as xr
-import os
-from numpy import datetime_as_string
 from datetime import datetime
 import argparse
 import sys
