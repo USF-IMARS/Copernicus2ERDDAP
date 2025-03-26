@@ -12,7 +12,7 @@ from datetime import datetime
 import argparse
 import sys
 
-def get_granule(target_date=None):
+def download_granule(target_date=None):
     """
     Download a Sentinel-2 granule for the specified date.
     If no date is provided, uses the current date.
