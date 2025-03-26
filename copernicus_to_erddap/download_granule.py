@@ -53,7 +53,7 @@ def download_granule(base_path="./results", target_date=None):
     # assume there is only one granule for the target date
     # TODO: handle multiple granules
 
-    output_file = base_path / f"{date_str}.nc"
+    output_file = base_path + f"/{date_str}.nc"
     print(f"Saving granule to file {output_file}")
     # save the cube to a netcdf file
     s2_bands.download(output_file, format="NetCDF")
