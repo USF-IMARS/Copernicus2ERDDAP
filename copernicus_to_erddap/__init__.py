@@ -6,6 +6,6 @@ into a directory for ERDDAP.
 """
 
 # Export key functions
-from .download_granule import get_granule
+from .download_granule import download_granule
 
 __version__ = "0.1.0"
