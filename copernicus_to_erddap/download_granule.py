@@ -6,13 +6,12 @@ from the Copernicus Data Space Ecosystem for a specified date
 or the current date if none is provided.
 """
 
-from pathlib import Path
 import openeo
 from datetime import datetime
 import argparse
 import sys
 
-def download_granule(target_date=None):
+def download_granule(base_path="./results", target_date=None):
     """
     Download a Sentinel-2 granule for the specified date.
     If no date is provided, uses the current date.
@@ -25,9 +24,6 @@ def download_granule(target_date=None):
     """
     ## let us create a output directory
     #os.mkdir("results")
-    base_path = Path("results")
-    base_path.mkdir(exist_ok=True)
-
     backend_url = "openeo.dataspace.copernicus.eu/"
 
     eoconn = openeo.connect(backend_url)
