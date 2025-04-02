@@ -11,7 +11,8 @@ from datetime import datetime
 import argparse
 import sys
 
-def download_granule(base_path="./results", target_date=None):
+
+def download_granule(collection_name, base_path="./results", target_date=None):
     """
     Download a Sentinel-2 granule for the specified date.
     If no date is provided, uses the current date.
@@ -43,7 +44,7 @@ def download_granule(base_path="./results", target_date=None):
     print(f"Loading granule for date: {date_str}")
     # load a data cube for the target date
     s2_bands = eoconn.load_collection(
-        "SENTINEL2_L2A",
+        collection_name,
         temporal_extent=[date_str, date_str],
         spatial_extent=dict(zip(["west", "south", "east", "north"], bbox)),
         bands=["B04", "B08", "SCL"],
